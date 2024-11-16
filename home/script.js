@@ -30,13 +30,12 @@ let uploadedImages = [];
 document.getElementById("fileInput").addEventListener("change", function (e) {
     const files = e.target.files;
     const imagePreviewContainer = document.getElementById("imagePreview");
-    
+
     uploadedImages = []; // Clear previous images
 
-    // If files are selected
     if (files.length > 0) {
         const previewContainer = document.getElementById("imagePreviewContainer");
-        previewContainer.style.display = "flex";  // Show the image preview container
+        previewContainer.style.display = "flex"; // Show the image preview container
 
         Array.from(files).forEach((file) => {
             const reader = new FileReader();
@@ -95,9 +94,14 @@ document.getElementById("nextImageBtn").addEventListener("click", () => {
 });
 
 // Post button functionality
-document.getElementById("postBtn").addEventListener("click", function() {
-    const title = document.getElementById("postTitle").value;
-    const content = document.getElementById("postContent").value;
+document.getElementById("postBtn").addEventListener("click", function () {
+    const title = document.getElementById("postTitle").value.trim();
+    const content = document.getElementById("postContent").value.trim();
+
+    if (!title || !content) {
+        alert("Please enter both a title and content for your post.");
+        return;
+    }
 
     let postContent = `
         <h2>${title}</h2>
@@ -107,14 +111,32 @@ document.getElementById("postBtn").addEventListener("click", function() {
     // Handle the uploaded images
     if (uploadedImages.length > 0) {
         uploadedImages.forEach((imageSrc) => {
-            postContent += `<img src="${imageSrc}" alt="Uploaded Image" style="max-width: 100px; margin-top: 1rem;"/>`;
+            postContent += `<img src="${imageSrc}" alt="Uploaded Image" style="max-width: 100px; margin-top: 1rem;" />`;
         });
     }
 
     // Display or send the post content (this part will depend on your back-end setup)
     console.log(postContent); // Just for demonstration
     alert("Post submitted!");
+
+    // Reset post and preview containers
+    resetPostForm();
 });
+
+// Reset post and preview containers
+function resetPostForm() {
+    // Reset input fields
+    document.getElementById("postTitle").value = "";
+    document.getElementById("postContent").value = "";
+
+    // Clear uploaded images and hide preview container
+    uploadedImages = [];
+    currentImageIndex = 0;
+    const previewContainer = document.getElementById("imagePreviewContainer");
+    const imagePreview = document.getElementById("imagePreview");
+    previewContainer.style.display = "none";
+    imagePreview.innerHTML = "";
+}
 
 // Example Token Reward
 addTokens(0); // Add initial tokens

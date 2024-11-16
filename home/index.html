@@ -8,14 +8,14 @@
 </head>
 <body>
     <!-- Header Section -->
-    <div class="header">
+    <header class="header">
         <div class="header-left">
             <h1>WizWeB</h1>
         </div>
         <div class="header-center">
             <div class="search-container">
-                <input id="searchBar" type="text" placeholder="Search with #tag or context">
-                <button id="searchBtn">Search</button>
+                <input id="searchBar" type="text" placeholder="Search with #tag or context" aria-label="Search bar">
+                <button id="searchBtn" aria-label="Search">Search</button>
             </div>
         </div>
         <div class="header-right">
@@ -23,39 +23,43 @@
                 <p>Tokens: <span id="tokenCount">0</span></p>
             </div>
             <div class="menu-icon top-left">
-                <button id="menuToggle">☰</button>
-                <div id="menu" class="menu-content hidden">
+                <button id="menuToggle" aria-label="Toggle menu">☰</button>
+                <nav id="menu" class="menu-content hidden" aria-hidden="true">
                     <a href="#about">About</a>
                     <a href="#features">Features</a>
                     <a href="#settings">Settings</a>
-                </div>
+                </nav>
             </div>
         </div>
-    </div>
+    </header>
 
     <!-- Main Content -->
-    <div class="main-content">
+    <main class="main-content">
         <!-- Post Container -->
-        <div class="post-container">
-            <textarea id="postTitle" placeholder="Enter post title" rows="1"></textarea>
-            <textarea id="postContent" placeholder="Write your post..." rows="4"></textarea>
+        <section class="post-container">
+            <textarea id="postTitle" placeholder="Enter post title" rows="1" aria-label="Post title"></textarea>
+            <textarea id="postContent" placeholder="Write your post..." rows="4" aria-label="Post content"></textarea>
             
-            <label for="fileInput" class="file-input-label">
+            <label for="fileInput" class="file-input-label" aria-label="Choose file">
                 <img src="plus-sign.png" alt="Upload Image" class="file-input-icon"> 
                 Choose File
             </label>
-            <input type="file" id="fileInput" multiple accept="image/*" style="display:none;"/>
+            <input type="file" id="fileInput" multiple accept="image/*" style="display:none;" aria-label="File input">
             
-            <button id="postBtn">Post</button>
-        </div>
+            <button id="postBtn" aria-label="Post">Post</button>
+        </section>
 
         <!-- Image Preview Container -->
-        <div id="imagePreviewContainer" class="image-preview-container">
-            <button id="prevImageBtn" class="nav-btn hidden">←</button>
-            <div id="imagePreview"></div>
-            <button id="nextImageBtn" class="nav-btn hidden">→</button>
-        </div>
-    </div>
+        <aside id="imagePreviewContainer" class="image-preview-container">
+            <div id="imagePreview" aria-live="polite"></div>
+            <button id="prevImageBtn" class="nav-btn hidden" aria-label="Previous Image">
+                <img src="left.png" alt="Previous" class="file-input-icon"> 
+            </button>
+            <button id="nextImageBtn" class="nav-btn hidden" aria-label="Next Image">
+                <img src="right.png" alt="Next" class="file-input-icon"> 
+            </button>
+        </aside>
+    </main>
 
     <!-- External Scripts -->
     <script src="script.js"></script>
