@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WizWeB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="header-left">
+            <h1>WizWeB</h1>
+        </div>
+        <div class="header-center">
+            <div class="search-container">
+                <input id="searchBar" type="text" placeholder="Search with #tag or context">
+                <button id="searchBtn">Search</button>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="token-counter">
+                <p>Tokens: <span id="tokenCount">0</span></p>
+            </div>
+            <div class="menu-icon top-left">
+                <button id="menuToggle">☰</button>
+                <div id="menu" class="menu-content hidden">
+                    <a href="#about">About</a>
+                    <a href="#features">Features</a>
+                    <a href="#settings">Settings</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Post Container -->
+        <div class="post-container">
+            <textarea id="postTitle" placeholder="Enter post title" rows="1"></textarea>
+            <textarea id="postContent" placeholder="Write your post..." rows="4"></textarea>
+            
+            <label for="fileInput" class="file-input-label">
+                <img src="plus-sign.png" alt="Upload Image" class="file-input-icon"> 
+                Choose File
+            </label>
+            <input type="file" id="fileInput" multiple accept="image/*" style="display:none;"/>
+            
+            <button id="postBtn">Post</button>
+        </div>
+
+        <!-- Image Preview Container -->
+        <div id="imagePreviewContainer" class="image-preview-container">
+            <button id="prevImageBtn" class="nav-btn hidden">←</button>
+            <div id="imagePreview"></div>
+            <button id="nextImageBtn" class="nav-btn hidden">→</button>
+        </div>
+    </div>
+
+    <!-- External Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
