@@ -3,55 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web3 Dashboard</title>
+    <title>WizWeB Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <h1>Welcome to Web3 Platform</h1>
-    </header>
+    <div class="login-page">
+        <header>
+            <img src="assets/logo.jpg" alt="Platform Logo" class="logo">
+        </header>
+        <main>
+            <!-- Login Container -->
+            <div id="login-container" class="login-container">
+                <h1>Welcome to WizWeB</h1>
+                <p>Connect using one of the options below:</p>
+                
+                <div class="login-buttons">
+                    <button id="metamask-login" class="login-btn">🔒 Login with MetaMask</button>
+                    <button id="guest-login" class="login-btn">👤 Continue as Guest</button>
+                </div>
 
-    <!-- Sidebars -->
-    <!-- Top Left Sidebar -->
-    <nav class="sidebar top-left">
-        <button id="menuToggle" aria-label="Toggle main menu">☰</button>
-        <ul id="menu" class="hidden">
-            <li><a href="#about">About</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#settings">Settings</a></li>
-        </ul>
-    </nav>
+                <div id="login-feedback" class="feedback"></div>
+            </div>
 
-    <!-- Bottom Right Sidebar -->
-    <nav class="sidebar bottom-right">
-        <button id="extraMenuToggle" aria-label="Toggle extra menu">•••</button>
-        <ul id="extraMenu" class="hidden">
-            <li><a href="#exclusive">Exclusive Features</a></li>
-            <li><a href="#rankings">Rankings</a></li>
-            <li><a href="#shop">Token Shop</a></li>
-        </ul>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <section class="search-container">
-            <input id="searchBar" type="text" placeholder="Search with #tag or context" aria-label="Search input">
-            <button id="searchBtn" aria-label="Search">Search</button>
-        </section>
-        <section id="searchResults" class="search-results">
-            <!-- Dynamic search results will appear here -->
-        </section>
-    </main>
-
-    <!-- Token Counter -->
-    <footer class="token-counter">
-        <p>Tokens: <span id="tokenCount">0</span></p>
-    </footer>
-
-    <!-- Scripts -->
+        </main>
+        <footer>
+            <p>&copy; 2024 WizWeB. All rights reserved.</p>
+        </footer>
+    </div>
     <script src="script.js"></script>
-    <script src="plugins/fleek.js"></script>
-    <script src="plugins/apptoss.js"></script>
 </body>
 </html>
