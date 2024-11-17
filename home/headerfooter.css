@@ -17,8 +17,8 @@ header {
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 nav {
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	top: 0;
 	position: fixed;
 	display: flex;
@@ -236,5 +236,71 @@ a, button {
 @media (min-width: 1025px) {
     .menu {
         display: none;
+    }
+}
+
+
+/* Corrected styling for side-menu */
+.side-menu {
+    display: none; /* Hide side-menu by default */
+}
+
+/* Show side-menu on smaller screens */
+@media (max-width: 1024px) {
+    .side-menu {
+        display: block; /* Make side-menu visible */
+        position: fixed;
+        width: 250px;
+        height: calc(100% - 100px); /* Adjusted height to add margin from the top */
+        background-color: #333;
+        color: #fff;
+        z-index: 100;
+        right: -250px; /* Initially hide the side-menu outside the viewport */
+        top: 100px; /* Margin from the top for nav bar */
+        overflow-y: auto;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        transition: right 0.3s ease; /* Add smooth sliding effect */
+        border-radius: 10px 0 0 10px; /* Rounded edge for better appearance */
+    }
+
+    .side-menu.active {
+        right: 0; /* Slide in the side-menu */
+    }
+
+    .side-menu .close {
+        display: block;
+        text-align: right;
+        margin-bottom: 20px;
+    }
+
+    .side-menu .close img {
+        width: 20px;
+        cursor: pointer;
+    }
+
+    .side-menu ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .side-menu ul li {
+        margin: 15px 0;
+        border-bottom: 1px solid #555; /* Separator line for better look */
+        padding-bottom: 10px; /* Spacing for each menu item */
+    }
+
+    .side-menu ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+        padding: 8px;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    .side-menu ul li a:hover {
+        background-color: #444; /* Hover effect for better interaction */
     }
 }

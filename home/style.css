@@ -196,6 +196,7 @@ body {
 
 /* Row Styling */
 .row {
+    margin-top: 90px;
     display: flex;
     justify-content: space-between;  /* Align sections on the left, center, right */
     width: 100%;
