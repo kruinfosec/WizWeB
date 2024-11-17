@@ -1,57 +1,57 @@
 /* General Reset */
-body, html {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Arial', sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
     background: url('assets/background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
 }
 
-/* Main Login Page Styles */
+/* Hiding Sections */
+.hidden {
+    display: none;
+}
+
+/* Login Page Styles */
 .login-page {
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    height: 100vh;
     justify-content: space-between;
+    align-items: center;
     text-align: center;
-}
-
-header {
-    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
 }
 
 .logo {
-    width: 500px;
-    position: relative;
-    left: -20rem;
-    bottom: -5rem;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
+    width: 300px;
+    margin-bottom: 20px;
 }
 
 .login-container {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     border-radius: 10px;
     padding: 20px;
-    width: 90%;
     max-width: 400px;
+    width: 90%;
     box-shadow: 0px 0px 10px 2px #f60eaf;
-    position: relative;
-    left: 30rem;
-    bottom: 20rem;
-}
-h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    text-align: center;
 }
 
-p {
+.login-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.login-container p {
     font-size: 1rem;
     margin-bottom: 20px;
 }
@@ -68,23 +68,200 @@ p {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    background-color: #04e9e9;
+    color: #121212;
     transition: all 0.3s ease-in-out;
 }
 
 .login-btn:hover {
-    background-color: #04e9e9;
-    color: #000;
+    background-color: #02cfcf;
+}
+
+/* Specific Styles for Wallet Buttons */
+#martian-login {
+    background-color: #4CAF50; /* Green for Martian Wallet */
+    color: #fff;
+}
+
+#martian-login:hover {
+    background-color: #45A049;
+}
+
+#sui-login {
+    background-color: #007BFF; /* Blue for Sui Wallet */
+    color: #fff;
+}
+
+#sui-login:hover {
+    background-color: #0056b3;
 }
 
 .feedback {
     margin-top: 15px;
     font-size: 0.9rem;
-    display: none;
     color: #ff6666;
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 footer {
-    margin-bottom: 10px;
+    margin-top: auto;
     font-size: 0.8rem;
     color: #ccc;
+}
+
+/* Dashboard Styles */
+body.dashboard {
+    background-color: #121212;
+}
+
+.header {
+    text-align: center;
+    padding: 15px;
+    background-color: #1F1F1F;
+    color: #FFF;
+    border-bottom: 2px solid #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: #1E1E1E;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    gap: 1rem;
+}
+
+.sidebar a {
+    color: #E0E0E0;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #333;
+    color: #BB86FC;
+}
+
+.sidebar button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #E0E0E0;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    color: #BB86FC;
+}
+
+.top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.bottom-right {
+    bottom: 10px;
+    right: 10px;
+}
+
+/* Main Content */
+.main-content {
+    margin: 50px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #1E1E1E;
+    border-radius: 10px;
+    overflow-y: auto;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: #E0E0E0;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #BB86FC;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    background-color: #BB86FC;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #9C6EFF;
+}
+
+/* Token Counter */
+.token-counter {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    font-size: 1.2rem;
+    color: #BB86FC;
+    background-color: #1E1E1E;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 2px solid #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        padding: 10px;
+        gap: 0.5rem;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .features {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .feature-box {
+        flex: 1 1 100%;
+    }
 }
