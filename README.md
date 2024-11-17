@@ -1,1 +1,1 @@
-# WizWeB
+# WisWeb

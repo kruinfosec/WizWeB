@@ -4,12 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WizWeB</title>
+    <title>WisWeb -Home</title>
     <link rel="stylesheet" type="text/css" href="headerfooter.css">
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="script.js"></script>
-
-
 </head>
 
 <body>
@@ -43,7 +41,6 @@
         </div>
     </header>
 
-
     <div class="container">
         <!-- Main Row (Community, Feed, Create Post) -->
         <div class="row">
@@ -68,23 +65,20 @@
 
             <!-- Create Post Section (Right) -->
             <div class="write-post">
-                <h2>Write Post</h2>
-                <!-- Main Content -->
                 <!-- Main Content -->
                 <main class="main-content">
                     <!-- Post Container -->
                     <section class="post-container">
-                        <textarea id="postTitle" placeholder="Enter post title" rows="1"
-                            aria-label="Post title"></textarea>
-                        <textarea id="postContent" placeholder="Write your post..." rows="4"
-                            aria-label="Post content"></textarea>
+                        <h2>Write Post</h2>
+
+                        <textarea id="postTitle" placeholder="Enter post title" rows="1" aria-label="Post title"></textarea>
+                        <textarea id="postContent" placeholder="Write your post..." rows="4" aria-label="Post content"></textarea>
 
                         <label for="fileInput" class="file-input-label" aria-label="Choose file">
                             <img src="../assets/plus-sign.png" alt="Upload Image" class="file-input-icon">
                             Choose File
                         </label>
-                        <input type="file" id="fileInput" multiple accept="image/*" style="display:none;"
-                            aria-label="File input">
+                        <input type="file" id="fileInput" multiple accept="image/*" style="display:none;" aria-label="File input">
 
                         <button id="postBtn" aria-label="Post">Post</button>
                     </section>
@@ -102,13 +96,43 @@
                         </div>
                     </aside>
                 </main>
+            <div><br></div>
+                            <!-- Create Community Section (Below Create Post) -->
+            <div class="create-community">
+                <h2>Create a New Community</h2>
+                <form class="community-form">
+                    <label for="community-name" class="form-label">Community Name</label>
+                    <input type="text" id="community-name" name="community-name" placeholder="Enter community name" required>
+
+                    <label for="community-description" class="form-label">Community Description</label>
+                    <textarea id="community-description" name="community-description" placeholder="Write a brief description" rows="4" required></textarea>
+
+                    <label for="community-category" class="form-label">Category</label>
+                    <select id="community-category" name="community-category" required>
+                        <option value="">Select category</option>
+                        <option value="technology">Technology</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="art">Art</option>
+                        <option value="music">Music</option>
+                        <option value="sports">Sports</option>
+                    </select>
+
+                            <img src="../assets/plus-sign.png" alt="Upload Image" class="file-input-icon">
+                    <input type="file" id="community-image" name="community-image" accept="image/*">
+
+                    <button type="submit" class="submit-btn">Create Community</button>
+                </form>
             </div>
+            </div>
+
+
+
         </div>
     </div>
 
-
     <!-- External Scripts -->
     <script src="script.js"></script>
+    <script src="community.js"></script>
 
 </body>
 

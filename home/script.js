@@ -145,3 +145,42 @@ function resetPostForm() {
 
 // Example Token Reward
 addTokens(0); // Add initial tokens
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Fetch posts from the server
+    fetch('http://localhost:5000/api/posts')
+      .then(response => response.json())
+      .then(posts => {
+        const feed = document.querySelector('.feed');
+        feed.innerHTML = '';  // Clear existing posts in the feed
+  
+        // Loop through posts and create the HTML structure for each one
+        posts.forEach(post => {
+          const postElement = document.createElement('div');
+          postElement.classList.add('post');
+  
+          // Create post content (you can customize this)
+          const postTitle = document.createElement('h3');
+          postTitle.textContent = post.title;
+  
+          const postContent = document.createElement('p');
+          postContent.textContent = post.content;
+  
+          // Append to the post element
+          postElement.appendChild(postTitle);
+          postElement.appendChild(postContent);
+  
+          // Append the post to the feed
+          feed.appendChild(postElement);
+        });
+      })
+      .catch(err => {
+        console.error('Error fetching posts:', err);
+      });
+  });
+  
