@@ -52,12 +52,14 @@
         <!-- Image Preview Container -->
         <aside id="imagePreviewContainer" class="image-preview-container">
             <div id="imagePreview" aria-live="polite"></div>
-            <button id="prevImageBtn" class="nav-btn hidden" aria-label="Previous Image">
-                <img src="left.png" alt="Previous" class="file-input-icon"> 
-            </button>
-            <button id="nextImageBtn" class="nav-btn hidden" aria-label="Next Image">
-                <img src="right.png" alt="Next" class="file-input-icon"> 
-            </button>
+            <div class="preview-navigation">
+               <button id="prevImageBtn" class="nav-btn" aria-label="Previous Image">
+                    <img src="left.png" alt="Previous" class="leftarrow-icon"> 
+                </button>
+                <button id="nextImageBtn" class="nav-btn" aria-label="Next Image">
+                    <img src="right.png" alt="Next" class="rightarrow-icon"> 
+                </button>
+            </div>
         </aside>
     </main>
 

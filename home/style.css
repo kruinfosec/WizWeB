@@ -123,24 +123,32 @@ textarea::placeholder {
     object-fit: contain;
 }
 
+.arrow-icon {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    top: 2rem;
+}
+
 /* Image Preview Section */
 .image-preview-container {
     width: 300px;
     height: auto;
     background-color: #1f1f1f;
-    display: flex;
+    display: none; /* Hidden by default */
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 1rem;
     border-radius: 0.5rem;
     border: 1px solid #444;
-    position: relative; /* Enables positioning of arrows */
+    position: relative;
     overflow: hidden;
+    box-sizing: border-box; /* Ensure padding is included in container's size */
 }
 
 .image-preview-container img {
-    max-width: 90%;
+    max-width: 100%;
     max-height: 150px;
     border-radius: 0.5rem;
     object-fit: contain;
@@ -150,15 +158,14 @@ textarea::placeholder {
 .preview-navigation {
     position: absolute;
     top: 50%;
-    width: 100%;
+    width: calc(100% - 30px);
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
-    pointer-events: none; /* Prevent pointer events outside the buttons */
 }
 
 .preview-navigation button {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: transparent;
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -168,12 +175,20 @@ textarea::placeholder {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    pointer-events: all; /* React to pointer events */
-    transition: background-color 0.3s;
+    transition: opacity 0.3s;
+    opacity: 0.7;
+}
+
+#prevImageBtn {
+    left: 30px; /* Adjusted to ensure it is on the left */
+}
+
+#nextImageBtn {
+    right: 30px; /* Adjusted to ensure it is on the right */
 }
 
 .preview-navigation button:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 1;
 }
 
 /* Post Button */

@@ -134,8 +134,13 @@ function resetPostForm() {
     currentImageIndex = 0;
     const previewContainer = document.getElementById("imagePreviewContainer");
     const imagePreview = document.getElementById("imagePreview");
-    previewContainer.style.display = "none";
-    imagePreview.innerHTML = "";
+
+    previewContainer.style.display = "none"; // Hide the preview container after posting
+    imagePreview.innerHTML = ""; // Clear the image preview
+
+    // Optionally, you can also hide the navigation arrows if you want
+    document.getElementById("prevImageBtn").classList.add("hidden");
+    document.getElementById("nextImageBtn").classList.add("hidden");
 }
 
 // Example Token Reward
