@@ -1,15 +1,16 @@
-const { MongoClient } = require("mongodb");
-
-const uri = "mongodb://localhost:27017"; // Update if you're using cloud MongoDB
-const client = new MongoClient(uri);
+const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        await client.connect();
-        console.log("Connected to MongoDB");
+        await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log('MongoDB connected successfully');
     } catch (error) {
-        console.error("MongoDB connection failed", error);
+        console.error('MongoDB connection failed:', error.message);
+        process.exit(1);
     }
 };
 
-module.exports = { connectDB, client };
+module.exports = connectDB;
