@@ -1,5 +1,8 @@
 // DOM Elements
 const loginFeedback = document.getElementById("login-feedback");
+const profileFeedback = document.getElementById("profile-feedback"); // Add this for profile feedback
+const loginContainer = document.getElementById("login-container");
+const profileContainer = document.getElementById("profile-container");
 
 // MetaMask Login Functionality
 async function loginWithMetaMask() {
@@ -32,6 +35,40 @@ async function loginWithMetaMask() {
     }
 }
 
+// Handle Profile Form Submission
+const handleProfileSubmission = (e) => {
+    e.preventDefault();
+
+    // Retrieve form values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    // Validation
+    if (name && email && username && password) {
+        profileFeedback.style.color = "#00ffcc";
+        profileFeedback.textContent = "Profile created successfully!";
+        profileFeedback.style.display = "block";
+
+        // Simulate saving and return to login
+        setTimeout(() => {
+            toggleContainers(loginContainer, profileContainer);
+            profileFeedback.style.display = "none";
+        }, 2000);
+    } else {
+        profileFeedback.style.color = "#ff6666";
+        profileFeedback.textContent = "Please fill out all fields.";
+        profileFeedback.style.display = "block";
+    }
+};
+
+// Toggle containers function
+const toggleContainers = (showContainer, hideContainer) => {
+    showContainer.style.display = "block";
+    hideContainer.style.display = "none";
+};
+
 // Event Listeners
 document.getElementById("metamask-login").addEventListener("click", loginWithMetaMask);
 
@@ -43,19 +80,10 @@ document.getElementById("guest-login").addEventListener("click", function () {
     loginFeedback.textContent = "Guest login not yet implemented.";
 });
 
-// Create Profile Placeholder
+// Create Profile Button Click
 document.getElementById("create-profile").addEventListener("click", () => {
-    loginFeedback.style.display = "block";
-    loginFeedback.style.color = "#00ffcc";
-    loginFeedback.textContent = "Create Profile not yet implemented.";
+    toggleContainers(profileContainer, loginContainer); // Switch to profile container
 });
 
-document.getElementById("metamask-login").addEventListener("click", () => {
-    loginFeedback.style.display = "block";
-    loginFeedback.textContent = "MetaMask login is not available on this device.";
-    if (typeof window.ethereum === "undefined") {
-        loginFeedback.style.display = "block";
-        loginFeedback.textContent = "MetaMask not detected. Please install it to enable blockchain login.";
-    }
-
-});
+// Profile Form Submission
+document.getElementById("profile-form").addEventListener("submit", handleProfileSubmission);
