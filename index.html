@@ -1,35 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WizWeB Login</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="login-page">
-        <header>
-            <img src="assets/logo.jpg" alt="Platform Logo" class="logo">
-        </header>
-        <main>
-            <!-- Login Container -->
-            <div id="login-container" class="login-container">
-                <h1>Welcome to WizWeB</h1>
-                <p>Connect using one of the options below:</p>
-                
-                <div class="login-buttons">
-                    <button id="metamask-login" class="login-btn">🔒 Login with MetaMask</button>
-                    <button id="guest-login" class="login-btn">👤 Continue as Guest</button>
-                </div>
+<script>
+    // DOM Elements
+    const loginPage = document.getElementById("login-page");
+    const dashboardPage = document.getElementById("dashboard-page");
+    const metamaskLoginBtn = document.getElementById("metamask-login");
+    const martianLoginBtn = document.getElementById("martian-login");
+    const suiLoginBtn = document.getElementById("sui-login");
+    const guestLoginBtn = document.getElementById("guest-login");
+    const loginFeedback = document.getElementById("login-feedback");
 
-                <div id="login-feedback" class="feedback"></div>
-            </div>
+    // Utility Function to Display Feedback
+    const displayFeedback = (message, color = "#00ffcc") => {
+        loginFeedback.style.display = "block";
+        loginFeedback.style.color = color;
+        loginFeedback.textContent = message;
+    };
 
-        </main>
-        <footer>
-            <p>&copy; 2024 WizWeB. All rights reserved.</p>
-        </footer>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+    // Transition to Dashboard
+    const transitionToDashboard = () => {
+        loginPage.classList.add("hidden");
+        dashboardPage.classList.remove("hidden");
+    };
+
+    // MetaMask Login
+    metamaskLoginBtn.addEventListener("click", async () => {
+        metamaskLoginBtn.textContent = "⏳ Connecting...";
+        setTimeout(() => {
+            displayFeedback("Connected with MetaMask!");
+            metamaskLoginBtn.textContent = "🔒 Login with MetaMask";
+            transitionToDashboard();
+        }, 1500);
+    });
+
+    // Martian Wallet Login
+    martianLoginBtn.addEventListener("click", async () => {
+        martianLoginBtn.textContent = "⏳ Connecting...";
+        if (typeof window.martian !== "undefined") {
+            try {
+                const accounts = await window.martian.connect(); // Request connection
+                displayFeedback(`Connected with Martian Wallet: ${accounts.address}`);
+                transitionToDashboard();
+            } catch (error) {
+                console.error("Martian Wallet Error:", error);
+                displayFeedback("Failed to connect to Martian Wallet.", "#ff4d4d");
+            }
+        } else {
+            displayFeedback("Martian Wallet is not installed. Please install it to continue.", "#ff4d4d");
+        }
+        martianLoginBtn.textContent = "🌌 Login with Martian Wallet";
+    });
+
+    // Sui Wallet Login
+    suiLoginBtn.addEventListener("click", async () => {
+        suiLoginBtn.textContent = "⏳ Connecting...";
+        if (typeof window.suiWallet !== "undefined") {
+            try {
+                const accounts = await window.suiWallet.requestAccounts(); // Request connection
+                displayFeedback(`Connected with Sui Wallet: ${accounts[0]}`);
+                transitionToDashboard();
+            } catch (error) {
+                console.error("Sui Wallet Error:", error);
+                displayFeedback("Failed to connect to Sui Wallet.", "#ff4d4d");
+            }
+        } else {
+            displayFeedback("Sui Wallet is not installed. Please install it to continue.", "#ff4d4d");
+        }
+        suiLoginBtn.textContent = "💧 Login with Sui Wallet";
+    });
+
+    // Guest Login Simulation
+    guestLoginBtn.addEventListener("click", () => {
+        guestLoginBtn.textContent = "🌟 Redirecting...";
+        setTimeout(() => {
+            displayFeedback("Guest login successful!");
+            guestLoginBtn.textContent = "👤 Continue as Guest";
+            transitionToDashboard();
+        }, 1500);
+    });
+</script>
