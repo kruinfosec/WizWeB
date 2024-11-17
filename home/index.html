@@ -1,69 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WizWeB</title>
+    <link rel="stylesheet" type="text/css" href="headerfooter.css">
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+
+
 </head>
+
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="header-left">
-            <h1>WizWeB</h1>
-        </div>
-        <div class="header-center">
-            <div class="search-container">
-                <input id="searchBar" type="text" placeholder="Search with #tag or context" aria-label="Search bar">
-                <button id="searchBtn" aria-label="Search">Search</button>
-            </div>
-        </div>
-        <div class="header-right">
-            <div class="token-counter">
-                <p>Tokens: <span id="tokenCount">0</span></p>
-            </div>
-            <div class="menu-icon top-left">
-                <button id="menuToggle" aria-label="Toggle menu">☰</button>
-                <nav id="menu" class="menu-content hidden" aria-hidden="true">
-                    <a href="#about">About</a>
-                    <a href="#features">Features</a>
-                    <a href="#settings">Settings</a>
-                </nav>
-            </div>
+    <!-- Navigation Bar -->
+    <header id="header">
+        <nav>
+            <div class="logo"><img src="../assets/Wiz Web.png" alt="logo"></div>
+            <ul>
+                <li><a class="active" href="">Home</a></li>
+                <li><a href="#portfolio_section">Portfolio</a></li>
+                <li><a href="#team_section">Team</a></li>
+                <li><a href="#services_section">Services</a></li>
+                <li><a href="#contactus_section">Contact</a></li>
+            </ul>
+            <div class="srch"><input type="text" class="search" placeholder="Search here..."><img
+                    src="../assets/search.png" alt="search" onclick=slide()></div>
+            <a class="get-started" href="login.html">Tokens: <span id="tokenCount">0</span></a>
+            <img src="../assets/menu.png" class="menu" onclick="sideMenu(0)" alt="menu">
+        </nav>
+
+        <div class="side-menu" id="side-menu">
+            <div class="close" onclick="sideMenu(1)"><img src="images/icon/close.png" alt=""></div>
+            <ul>
+                <li><a href="#about_section">About</a></li>
+                <li><a href="#portfolio_section">Portfolio</a></li>
+                <li><a href="#team_section">Team</a></li>
+                <li><a href="#services_section">Services</a></li>
+                <li><a href="#contactus_section">Contact</a></li>
+                <li><a href="#feedBACK">Feedback</a></li>
+            </ul>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Post Container -->
-        <section class="post-container">
-            <textarea id="postTitle" placeholder="Enter post title" rows="1" aria-label="Post title"></textarea>
-            <textarea id="postContent" placeholder="Write your post..." rows="4" aria-label="Post content"></textarea>
-            
-            <label for="fileInput" class="file-input-label" aria-label="Choose file">
-                <img src="plus-sign.png" alt="Upload Image" class="file-input-icon"> 
-                Choose File
-            </label>
-            <input type="file" id="fileInput" multiple accept="image/*" style="display:none;" aria-label="File input">
-            
-            <button id="postBtn" aria-label="Post">Post</button>
-        </section>
 
-        <!-- Image Preview Container -->
-        <aside id="imagePreviewContainer" class="image-preview-container">
-            <div id="imagePreview" aria-live="polite"></div>
-            <div class="preview-navigation">
-               <button id="prevImageBtn" class="nav-btn" aria-label="Previous Image">
-                    <img src="left.png" alt="Previous" class="leftarrow-icon"> 
-                </button>
-                <button id="nextImageBtn" class="nav-btn" aria-label="Next Image">
-                    <img src="right.png" alt="Next" class="rightarrow-icon"> 
-                </button>
+    <div class="container">
+        <!-- Main Row (Community, Feed, Create Post) -->
+        <div class="row">
+            <!-- Community Section (Left) -->
+            <div class="community">
+                <h2>Community</h2>
+                <p>Join the conversation and connect with like-minded individuals!</p>
             </div>
-        </aside>
-    </main>
+
+            <!-- Feed Section (Center) -->
+            <div class="feed">
+                <h2>Feed</h2>
+                <div class="post">
+                    <h3>Post Title 1</h3>
+                    <p>This is a description of the first post...</p>
+                </div>
+                <div class="post">
+                    <h3>Post Title 2</h3>
+                    <p>This is a description of the second post...</p>
+                </div>
+            </div>
+
+            <!-- Create Post Section (Right) -->
+            <div class="write-post">
+                <h2>Write Post</h2>
+                <!-- Main Content -->
+                <!-- Main Content -->
+                <main class="main-content">
+                    <!-- Post Container -->
+                    <section class="post-container">
+                        <textarea id="postTitle" placeholder="Enter post title" rows="1"
+                            aria-label="Post title"></textarea>
+                        <textarea id="postContent" placeholder="Write your post..." rows="4"
+                            aria-label="Post content"></textarea>
+
+                        <label for="fileInput" class="file-input-label" aria-label="Choose file">
+                            <img src="../assets/plus-sign.png" alt="Upload Image" class="file-input-icon">
+                            Choose File
+                        </label>
+                        <input type="file" id="fileInput" multiple accept="image/*" style="display:none;"
+                            aria-label="File input">
+
+                        <button id="postBtn" aria-label="Post">Post</button>
+                    </section>
+
+                    <!-- Image Preview Container -->
+                    <aside id="imagePreviewContainer" class="image-preview-container">
+                        <div id="imagePreview" aria-live="polite"></div>
+                        <div class="preview-navigation">
+                            <button id="prevImageBtn" class="nav-btn" aria-label="Previous Image">
+                                <img src="../assets/left.png" alt="Previous" class="leftarrow-icon">
+                            </button>
+                            <button id="nextImageBtn" class="nav-btn" aria-label="Next Image">
+                                <img src="../assets/right.png" alt="Next" class="rightarrow-icon">
+                            </button>
+                        </div>
+                    </aside>
+                </main>
+            </div>
+        </div>
+    </div>
+
 
     <!-- External Scripts -->
     <script src="script.js"></script>
+
 </body>
+
 </html>
