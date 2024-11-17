@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());  // To parse JSON bodies
 
 // MongoDB connection setup
-const mongoURI = 'mongodb://localhost:27017/wizweb'; // MongoDB URI (local database named 'wizweb')
+const mongoURI = 'mongodb://localhost:27017/WizWeB'; // MongoDB URI (local database named 'wizweb')
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Error connecting to MongoDB:', err));
