@@ -1,29 +1,40 @@
-// server.js
+// backend/server.js
 
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 
-// Create an express app
 const app = express();
-
-// Middlewares
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());  // To parse JSON bodies
 
-// Database Connection
-mongoose.connect('your-mongodb-uri', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.log('MongoDB connection error:', err));
+// MongoDB connection setup
+const mongoURI = 'mongodb://localhost:27017/wizweb'; // MongoDB URI (local database named 'wizweb')
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.error('Error connecting to MongoDB:', err));
 
-// Define routes (add more as needed)
-app.get('/', (req, res) => {
-    res.send('Welcome to Web3 DApp Backend');
+// Define Post model
+const postSchema = new mongoose.Schema({
+  title: String,
+  content: String,
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
 
-// Start the server
-const PORT = process.env.PORT || 5000;
+const Post = mongoose.model('Post', postSchema);
+
+// API route to get posts
+app.get('/api/posts', async (req, res) => {
+  try {
+    const posts = await Post.find().populate('userId', 'name'); // Populate user name from User model
+    res.json(posts);
+  } catch (err) {
+    res.status(500).json({ error: 'Error fetching posts' });
+  }
+});
+
+// Start server
+const PORT = 5000;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
