@@ -25,7 +25,7 @@ body {
     margin-top: 2rem;
 }
 
-/* Post Container */
+/* Feed Container */
 .post-container {
     width: 100%;
     max-width: 500px;
@@ -135,7 +135,7 @@ textarea::placeholder {
     opacity: 1;
 }
 
-/* Post Button */
+/* Feed Button */
 #postBtn {
     background-color: #DF2771;
     color: #fff;
@@ -225,7 +225,7 @@ body {
     min-width: 60%;  /* Ensures the feed doesn't become too narrow */
 }
 
-/* Post Styling */
+/* Feed Styling */
 .post {
     background-color: #ffffff;
     border: 1px solid #000000;
@@ -244,7 +244,7 @@ body {
     color: #555;
 }
 
-/* Create Post Section (Right) */
+/* Create Feed Section (Right) */
 .write-post {
     padding: 20px;
     border-radius: 8px;
@@ -475,7 +475,7 @@ body {
     flex-wrap: wrap; /* Allow content to wrap on smaller screens */
 }
 
-/* Post Container */
+/* Feed Container */
 .post-container {
     width: 100%;
     max-width: 500px;
@@ -585,7 +585,7 @@ textarea::placeholder {
     opacity: 1;
 }
 
-/* Post Button */
+/* Feed Button */
 #postBtn {
     background-color: #DF2771;
     color: #fff;
@@ -620,7 +620,7 @@ textarea::placeholder {
         height: auto;
     }
 
-    /* Post container and buttons */
+    /* Feed container and buttons */
     .post-container {
         width: 100%;
         max-width: 100%;

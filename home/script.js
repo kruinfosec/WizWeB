@@ -89,7 +89,7 @@ document.getElementById("nextImageBtn").addEventListener("click", () => {
     }
 });
 
-// Post button functionality
+// Feed button functionality
 document.getElementById("postBtn").addEventListener("click", function () {
     const title = document.getElementById("postTitle").value.trim();
     const content = document.getElementById("postContent").value.trim();
@@ -113,7 +113,7 @@ document.getElementById("postBtn").addEventListener("click", function () {
 
     // Display or send the post content (this part will depend on your back-end setup)
     console.log(postContent); // Just for demonstration
-    alert("Post submitted!");
+    alert("Feed submitted!");
 
     // Reset post and preview containers
     resetPostForm();

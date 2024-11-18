@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WisWeb -Home</title>
-    <link rel="stylesheet" type="text/css" href="headerfooter.css">
+    <title>WisWeb | Home</title>
+    <link rel="icon" href="../assets/Hat.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="../HeaderFooter/headerfooter.css">
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="script.js"></script>
-    <script type="text/javascript" src="headerfooter.js"></script>
+    <script type="text/javascript" src="../HeaderFooter/headerfooter.js"></script>
 </head>
 
 <body>
@@ -18,10 +19,10 @@
             <div class="logo"><img src="../assets/Wiz Web.png" alt="logo"></div>
             <ul>
                 <li><a class="active" href="">Home</a></li>
-                <li><a href="#portfolio_section">Portfolio</a></li>
-                <li><a href="#team_section">Team</a></li>
-                <li><a href="#services_section">Services</a></li>
-                <li><a href="#contactus_section">Contact</a></li>
+                <li><a href="..\Feed\feed.html">Feeds</a></li>
+                <li><a href="..\Community\community.html">Communities</a></li>
+                <li><a href="..\Profile\profile.html">Profile</a></li>
+                <li><a href="..\Help\helpcenter.html">Help Center</a></li>
             </ul>
             <div class="srch"><input type="text" class="search" placeholder="Search here..."><img
                     src="../assets/search.png" alt="search" onclick=slide()></div>
@@ -37,18 +38,18 @@
                 <img src="../assets/close.png" alt="Close Menu">
             </div>
             <ul>
-                <li><a href="#about_section">About</a></li>
-                <li><a href="#portfolio_section">Portfolio</a></li>
-                <li><a href="#team_section">Team</a></li>
-                <li><a href="#services_section">Services</a></li>
-                <li><a href="#contactus_section">Contact</a></li>
+                <li><a class="active" href="">Home</a></li>
+                <li><a href="..\Feed\feed.html">Feeds</a></li>
+                <li><a href="..\Community\community.html">Communities</a></li>
+                <li><a href="..\Profile\profile.html">Profile</a></li>
+                <li><a href="..\Help\helpcenter.html">Help Center</a></li>
             </ul>
         </div>
 
     </header>
 
     <div class="container">
-        <!-- Main Row (Community, Feed, Create Post) -->
+        <!-- Main Row (Community, Feed, Create Feed) -->
         <div class="row">
             <!-- Community Section (Left) -->
             <div class="community">
@@ -64,7 +65,7 @@
             <div class="feed">
                 <h2>Feed</h2>
                 <div class="feed-section">
-                    <!-- Post 1: ITAP -->
+                    <!-- Feed 1: ITAP -->
                     <div class="feed-card">
                         <div class="feed-header">
                             <p><span class="subreddit">r/itookapicture</span> • Posted by <span class="username">u/jaymesucks</span> 15 hours ago</p>
@@ -89,7 +90,7 @@
                         </div>
                     </div>
             
-                    <!-- Post 2: DSA -->
+                    <!-- Feed 2: DSA -->
                     <div class="feed-card">
                         <div class="feed-header">
                             <p><span class="subreddit">r/dsa</span> • Posted by <span class="username">u/algoguru</span> 2 days ago</p>
@@ -115,7 +116,7 @@
                         </div>
                     </div>
             
-                    <!-- Post 3: DBMS -->
+                    <!-- Feed 3: DBMS -->
                     <div class="feed-card">
                         <div class="feed-header">
                             <p><span class="subreddit">r/dbms</span> • Posted by <span class="username">u/db_prodigy</span> 5 hours ago</p>
@@ -142,18 +143,18 @@
                 </div>
             </div>
 
-            <!-- Create Post Section (Right) -->
+            <!-- Create Feed Section (Right) -->
             <div class="write-post">
                 <!-- Main Content -->
                 <main class="main-content">
-                    <!-- Post Container -->
+                    <!-- Feed Container -->
                     <section class="post-container">
-                        <h2>Write Post</h2>
+                        <h2>Write Feed</h2>
 
                         <textarea id="postTitle" placeholder="Enter post title" rows="1"
-                            aria-label="Post title"></textarea>
+                            aria-label="Feed title"></textarea>
                         <textarea id="postContent" placeholder="Write your post..." rows="4"
-                            aria-label="Post content"></textarea>
+                            aria-label="Feed content"></textarea>
 
                         <label for="fileInput" class="file-input-label" aria-label="Choose file">
                             <img src="../assets/plus-sign.png" alt="Upload Image" class="file-input-icon">
@@ -162,7 +163,7 @@
                         <input type="file" id="fileInput" multiple accept="image/*" style="display:none;"
                             aria-label="File input">
 
-                        <button id="postBtn" aria-label="Post">Post</button>
+                        <button id="postBtn" aria-label="Feed">Feed</button>
                     </section>
 
                     <!-- Image Preview Container -->
@@ -179,7 +180,7 @@
                     </aside>
                 </main>
                 <div><br></div>
-                <!-- Create Community Section (Below Create Post) -->
+                <!-- Create Community Section (Below Create Feed) -->
                 <div class="create-community">
                     <h2>Create a New Community</h2>
                     <form class="community-form">
@@ -220,7 +221,7 @@
 
     <!-- External Scripts -->
     <script src="script.js"></script>
-    <script src="headerfooter.js"></script>
+    <script src="../HeaderFooter/headerfooter.js"></script>
     <script src="community.js"></script>
 
 </body>
