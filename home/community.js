@@ -1,59 +1,75 @@
-// app.js
-const mongoose = require('mongoose');
-const express = require('express');
-const bodyParser = require('body-parser');
-const Community = require('./models/community'); // Import the Community model
+document.addEventListener('DOMContentLoaded', function () {
 
-const app = express();
-
-// Middleware to parse JSON data
-app.use(bodyParser.json());
-
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/wisweb', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => {
-    console.log('Connected to MongoDB');
-})
-.catch(err => {
-    console.log('MongoDB connection error:', err);
-});
-
-// Define a route to create a new community
-app.post('/create-community', async (req, res) => {
-    const { name, description, category, creator, image } = req.body;
-
-    try {
-        const newCommunity = new Community({
-            name,
-            description,
-            category,
-            creator,
-            image,
+    const form = document.querySelector('.community-form');
+    const communityList = document.getElementById('community-list');
+  
+    // Handle form submission
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault(); // Prevent form from refreshing the page
+  
+      const formData = new FormData(form); // Collect form data (including file if uploaded)
+  
+      // Send form data to the server
+      try {
+        const response = await fetch('http://localhost:3000/create-community', {
+          method: 'POST',
+          body: formData
         });
-
-        // Save the community to the database
-        await newCommunity.save();
-        res.status(201).json(newCommunity); // Send back the created community
-    } catch (err) {
-        res.status(400).json({ error: err.message });
+  
+        if (response.ok) {
+          const data = await response.json();
+          alert('Community created successfully!');
+          console.log('Community created:', data);
+  
+          // Optionally, display the new community in the community list
+          const newCommunity = document.createElement('div');
+          newCommunity.classList.add('community-item');
+          newCommunity.innerHTML = `
+            <h3>${data.name}</h3>
+            <p>${data.description}</p>
+            <p><strong>Category:</strong> ${data.category}</p>
+          `;
+          communityList.appendChild(newCommunity);
+  
+          // Reset the form
+          form.reset();
+        } else {
+          const errorData = await response.json();
+          alert('Error: ' + errorData.message);
+          console.error('Error creating community:', errorData);
+        }
+      } catch (error) {
+        console.error('Error creating community:', error);
+        alert('There was an error creating the community.');
+      }
+    });
+  
+    // Fetch the list of communities on page load
+    async function fetchCommunities() {
+      try {
+        const response = await fetch('http://localhost:3000/get-communities');
+        if (response.ok) {
+          const communities = await response.json();
+          communityList.innerHTML = ''; // Clear the existing list
+          communities.forEach(community => {
+            const communityItem = document.createElement('div');
+            communityItem.classList.add('community-item');
+            communityItem.innerHTML = `
+              <h3>${community.name}</h3>
+              <p>${community.description}</p>
+              <p><strong>Category:</strong> ${community.category}</p>
+            `;
+            communityList.appendChild(communityItem);
+          });
+        } else {
+          console.error('Failed to fetch communities');
+        }
+      } catch (error) {
+        console.error('Error fetching communities:', error);
+      }
     }
-});
-
-// Define a route to fetch all communities
-app.get('/communities', async (req, res) => {
-    try {
-        const communities = await Community.find(); // Fetch all communities
-        res.status(200).json(communities);
-    } catch (err) {
-        res.status(500).json({ error: 'Unable to fetch communities' });
-    }
-});
-
-// Start the server
-const port = 5000;
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+  
+    // Fetch the communities on page load
+    fetchCommunities();
+  
 });

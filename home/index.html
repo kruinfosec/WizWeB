@@ -50,7 +50,8 @@
                 <p>Join the conversation and connect with like-minded individuals!</p><br>
                 <div class="srch"><input type="text" class="search" placeholder="Search here..."><img
                         src="../assets/search.png" alt="search" onclick=slide()></div>
-                </nav>
+                        <div id="community-list"></div>
+
             </div>
 
             <!-- Feed Section (Center) -->
@@ -108,15 +109,13 @@
                     <h2>Create a New Community</h2>
                     <form class="community-form">
                         <label for="community-name" class="form-label">Community Name</label>
-                        <input type="text" id="community-name" name="community-name" placeholder="Enter community name"
-                            required>
-
+                        <input type="text" id="community-name" name="name" placeholder="Enter community name" required>
+                    
                         <label for="community-description" class="form-label">Community Description</label>
-                        <textarea id="community-description" name="community-description"
-                            placeholder="Write a brief description" rows="4" required></textarea>
-
+                        <textarea id="community-description" name="description" placeholder="Write a brief description" rows="4" required></textarea>
+                    
                         <label for="community-category" class="form-label">Category</label>
-                        <select id="community-category" name="community-category" required>
+                        <select id="community-category" name="category" required>
                             <option value="">Select category</option>
                             <option value="technology">Technology</option>
                             <option value="gaming">Gaming</option>
@@ -124,17 +123,16 @@
                             <option value="music">Music</option>
                             <option value="sports">Sports</option>
                         </select>
-
+                    
                         <label for="fileInput" class="file-input-label" aria-label="Choose file">
                             <img src="../assets/plus-sign.png" alt="Upload Image" class="file-input-icon">
                             Choose File
                         </label>
-                        <input type="file" id="fileInput" multiple accept="image/*" style="display:none;"
-                            aria-label="File input">
-
-
+                        <input type="file" id="fileInput" name="image" multiple accept="image/*" style="display:none;" aria-label="File input">
+                    
                         <button type="submit" class="submit-btn">Create Community</button>
                     </form>
+                    
                 </div>
             </div>
 
