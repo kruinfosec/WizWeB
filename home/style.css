@@ -318,3 +318,37 @@ body {
 .community-form button.submit-btn:hover {
     background-color: #F44369;
 }
+
+
+.community .search {
+    width: 200px;
+
+}
+
+.community div {
+    width: 90%;
+}
+
+
+.community .srch {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.community .search {
+    width: 200px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    outline: none;
+}
+
+.community .srch img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.community .srch img:hover {
+    opacity: 0.7;
+}

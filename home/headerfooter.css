@@ -68,7 +68,7 @@ nav ul li a:hover {
 	cursor: pointer;
 }
 .srch .search {
-	/* padding: 2px 10px; */
+	padding: 2px 10px;
 	outline: none;
 	border: none;
 	background: transparent;
