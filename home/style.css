@@ -721,3 +721,75 @@ textarea::placeholder {
         height: 50px;
     }
 }
+
+
+
+
+
+.feed {
+    display: flex;
+    flex-direction: column; /* Align content vertically */
+    align-items: center; /* Center-align all children */
+    width: 80%; /* Optional: adjust to your desired width */
+    max-width: 1200px; /* Set a max width to avoid stretching too much */
+    margin: auto;
+    padding: 20px; /* Optional: add some padding */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    border-radius: 10px; /* Optional: rounded corners */
+    max-height: 90vh; /* Limit the container height to 90% of viewport height */
+    overflow-y: auto; /* Enable vertical scrolling when content exceeds container height */
+}
+
+.feed-section {
+    width: 100%;
+    max-width: 600px;
+}
+
+.feed-card {
+    background-color: #2b2b2b; /* Darker background for cards */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.feed-header {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.subreddit {
+    color: #8181f7; /* Light blue for subreddit name */
+}
+
+.username {
+    color: #c0c0c0;
+}
+
+.feed-title {
+    font-size: 1.2em;
+    margin-top: 5px;
+    color: #f5f5f5; /* Lighter text for the title */
+}
+
+.feed-image img {
+    width: 100%;
+    display: block;
+}
+
+.feed-footer {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: #d3d3d3;
+}
+
+.feed-footer span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.feed-footer span::before {
+    margin-right: 5px;
+}
