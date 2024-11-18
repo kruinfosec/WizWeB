@@ -28,9 +28,14 @@
             <a class="get-started" href="login.html">Tokens: <span id="tokenCount">0</span></a>
             <img src="../assets/menu.png" class="menu" onclick="sideMenu(0)" alt="menu">
         </nav>
+        <!-- Hamburger Icon -->
+        <img src="../assets/menu.png" class="menu" onclick="sideMenu(0)" alt="menu">
 
+        <!-- Side Menu (Initially Hidden) -->
         <div class="side-menu" id="side-menu">
-            <div class="close" onclick="sideMenu(1)"><img src="images/icon/close.png" alt=""></div>
+            <div class="close" onclick="sideMenu(1)">
+                <img src="../assets/close.png" alt="Close Menu">
+            </div>
             <ul>
                 <li><a href="#about_section">About</a></li>
                 <li><a href="#portfolio_section">Portfolio</a></li>
@@ -39,6 +44,7 @@
                 <li><a href="#contactus_section">Contact</a></li>
             </ul>
         </div>
+
     </header>
 
     <div class="container">
@@ -50,7 +56,7 @@
                 <p>Join the conversation and connect with like-minded individuals!</p><br>
                 <div class="srch"><input type="text" class="search" placeholder="Search here..."><img
                         src="../assets/search.png" alt="search" onclick=slide()></div><BR>
-                            <div id="community-list" class="community-list"></div>
+                <div id="community-list" class="community-list"></div>
 
             </div>
 
@@ -110,10 +116,11 @@
                     <form class="community-form">
                         <label for="community-name" class="form-label">Community Name</label>
                         <input type="text" id="community-name" name="name" placeholder="Enter community name" required>
-                    
+
                         <label for="community-description" class="form-label">Community Description</label>
-                        <textarea id="community-description" name="description" placeholder="Write a brief description" rows="4" required></textarea>
-                    
+                        <textarea id="community-description" name="description" placeholder="Write a brief description"
+                            rows="4" required></textarea>
+
                         <label for="community-category" class="form-label">Category</label>
                         <select id="community-category" name="category" required>
                             <option value="">Select category</option>
@@ -123,16 +130,17 @@
                             <option value="music">Music</option>
                             <option value="sports">Sports</option>
                         </select>
-                    
+
                         <label for="fileInput" class="file-input-label" aria-label="Choose file">
                             <img src="../assets/plus-sign.png" alt="Upload Image" class="file-input-icon">
                             Choose File
                         </label>
-                        <input type="file" id="fileInput" name="image" multiple accept="image/*" style="display:none;" aria-label="File input">
-                    
+                        <input type="file" id="fileInput" name="image" multiple accept="image/*" style="display:none;"
+                            aria-label="File input">
+
                         <button type="submit" class="submit-btn">Create Community</button>
                     </form>
-                    
+
                 </div>
             </div>
 
@@ -143,6 +151,7 @@
 
     <!-- External Scripts -->
     <script src="script.js"></script>
+    <script src="headerfooter.js"></script>
     <script src="community.js"></script>
 
 </body>

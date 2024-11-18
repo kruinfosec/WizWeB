@@ -444,3 +444,280 @@ body {
         font-size: 13px;
     }
 }
+
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Layout */
+body {
+    background-color: #080808;
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Main Content Layout */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+}
+
+/* Post Container */
+.post-container {
+    width: 100%;
+    max-width: 500px;
+    background-color: #222;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #444;
+    border-radius: 0.5rem;
+    background-color: #222;
+    color: #E0E0E0;
+}
+
+textarea::placeholder {
+    color: #888;
+}
+
+/* File Input */
+.file-input-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #E0E0E0;
+    cursor: pointer;
+}
+
+.file-input-icon {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+.arrow-icon {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    top: 2rem;
+}
+
+/* Image Preview Section */
+.image-preview-container {
+    width: 300px;
+    height: auto;
+    background-color: #1f1f1f;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #444;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box; /* Ensure padding is included in container's size */
+}
+
+.image-preview-container img {
+    max-width: 100%;
+    max-height: 150px;
+    border-radius: 0.5rem;
+    object-fit: contain;
+}
+
+/* Navigation Arrows */
+.preview-navigation {
+    position: absolute;
+    top: 50%;
+    width: calc(100% - 30px);
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.preview-navigation button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    opacity: 0.7;
+}
+
+#prevImageBtn {
+    left: 30px; /* Adjusted to ensure it is on the left */
+}
+
+#nextImageBtn {
+    right: 30px; /* Adjusted to ensure it is on the right */
+}
+
+.preview-navigation button:hover {
+    opacity: 1;
+}
+
+/* Post Button */
+#postBtn {
+    background-color: #DF2771;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#postBtn:hover {
+    background-color: #DF2771;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Adjust layout to stack content vertically on smaller screens */
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    /* Adjust the size of the image preview container */
+    .image-preview-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .image-preview-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Post container and buttons */
+    .post-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.8rem;
+    }
+
+    /* Adjust text area and input size */
+    textarea,
+    input[type="file"],
+    select {
+        font-size: 14px;
+        padding: 0.4rem;
+    }
+
+    #postBtn {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    /* Make the form elements responsive */
+    .community-form input,
+    .community-form textarea,
+    .community-form select {
+        font-size: 14px;
+        padding: 0.5rem;
+    }
+
+    /* Community section adjustments */
+    .community {
+        padding: 15px;
+        min-width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    /* Feed section adjustments */
+    .feed {
+        padding: 15px;
+        min-width: 100%;
+    }
+
+    /* Create post section adjustments */
+    .write-post {
+        padding: 15px;
+        min-width: 100%;
+    }
+
+    /* Community List adjustments */
+    .community-list {
+        padding: 0 10px;
+        gap: 1rem;
+    }
+
+    .community-item {
+        padding: 12px;
+    }
+
+    .community-name {
+        font-size: 16px;
+    }
+
+    .community-description,
+    .community-category {
+        font-size: 13px;
+    }
+}
+
+/* Adjustments for smaller screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .community-name {
+        font-size: 14px;
+    }
+
+    .community-description,
+    .community-category {
+        font-size: 12px;
+    }
+
+    .community-item {
+        padding: 10px;
+    }
+
+    /* Adjust form elements further */
+    .community-form input,
+    .community-form textarea,
+    .community-form select {
+        font-size: 12px;
+        padding: 0.4rem;
+    }
+
+    /* Adjust the community list items */
+    .community-list {
+        padding: 0;
+    }
+
+    .community-image {
+        width: 50px;
+        height: 50px;
+    }
+}

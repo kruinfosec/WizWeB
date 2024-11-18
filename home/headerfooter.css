@@ -8,7 +8,6 @@
 	padding: 0;
 }
 
-
 header {
 	height: 20vh;
 	/* background: #000; */
@@ -16,6 +15,7 @@ header {
 .black {
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
+
 nav {
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -25,18 +25,21 @@ nav {
 	width: 100%;
 	z-index: 1000;
 	background: #000000;
-	justify-content: space-around;
-	transition: 1.5s;
+	justify-content: space-between;
 	align-items: center;
+	transition: 1.5s;
 }
+
 nav ul {
 	display: flex;
 	align-items: center;
 }
+
 nav ul li {
 	list-style: none;
 	margin: 5px 10px;
 }
+
 nav ul li a {
 	padding: 2px 10px;
 	color: #e7e7e7;
@@ -44,29 +47,33 @@ nav ul li a {
 	transition: .5s;
 	text-decoration: none;
 }
+
 nav ul li a:hover {
 	color: #fff;
 	border-radius: 5px;
 	background: #DF2771;
 }
+
 .active {
 	color: #fff;
 	border-radius: 5px;
 	background: #DF2771;
 }
+
 .srch {
 	padding: 2px 10px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/* background: #0066ff; */
 	border: 1px solid;
 	border-radius: 20px;
 }
+
 .srch img {
 	width: 25px;
 	cursor: pointer;
 }
+
 .srch .search {
 	padding: 2px 10px;
 	outline: none;
@@ -81,23 +88,23 @@ nav ul li a:hover {
 	border: 2px solid #DF2771;
 	border-radius: 20px;
 	text-decoration: none;
-	
 	transition: .5s;
 	background-color: #DF2771;
 	color: #fff;
 }
+
 .get-started:hover {
 	background: #2e2e2e;
 	color: #fff;
 }
-.logo img{
+
+.logo img {
 	width: 120px;
 	cursor: pointer;
 	transition: all 1s;
 }
 
 a, button {
-	float: left;
 	font-family: "Montserrat", sans-serif;
 	font-weight: 900;
 	font-size: 15px;
@@ -107,9 +114,7 @@ a, button {
 	text-align: center;
 }
 
-
-
-/*PROPERTIES FOR MAKING WEBSITE RESPONSIVE*/
+/* RESPONSIVENESS */
 @media screen and (max-width: 960px) {
 	.footer-container {
 		max-width: 600px;
@@ -130,7 +135,7 @@ a, button {
 		transition: 1s;
 		margin-left: 30%;
 	}
-	nav ul, .srch, .get-started{
+	nav ul, .srch, .get-started {
 		display: none;
 	}
 	.menu {
@@ -139,8 +144,6 @@ a, button {
 	nav {
 		padding-bottom: 20px;
 		border-bottom: 1px solid #0005;
-		/* position: fixed; */
-		/* top: 0; */
 	}
 	.quote p, .quote h5, .play {
 		justify-content: center;
@@ -155,117 +158,44 @@ a, button {
 	.title {
 		margin-top: 0px;
 	}
-	
 }
+
 @media screen and (max-width: 700px) {
-	footer .btn{
-		margin: 0;
+	footer .btn {
 		width: 100%;
 		margin-top: 20px;
 	}
 	.svg-image img {
 		width: 90%;
 		margin: 20px;
-		/* align-self: center; */
 	}
 }
 
-@media screen and (max-width: 960px) {	
-	.feedbox form input, .feedbox form .fname{
-		width: 100%;
-	}
-}
-
-
-/* Default styling for side-menu */
+/* Side menu */
 .side-menu {
     display: none; /* Hide side-menu by default */
 }
 
-/* Show side-menu on smaller screens */
 @media (max-width: 1024px) {
     .side-menu {
-        display: block; /* Adjust to preferred display type, like flex or block */
+        display: block;
         position: fixed;
         width: 250px;
         height: 100%;
         background-color: #333;
         color: #fff;
         z-index: 100;
-        right: 0;
-        top: 0;
+        right: -250px;
+        top: 60px; /* Adjust top margin */
         overflow-y: auto;
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
         padding: 20px;
-    }
-
-    .side-menu .user img {
-        width: 100px;
-        border-radius: 50%;
-        margin-bottom: 10px;
-    }
-
-    .side-menu ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .side-menu ul li {
-        margin: 15px 0;
-    }
-
-    .side-menu ul li a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 18px;
-    }
-
-    .close {
-        display: block;
-        text-align: right;
-        margin-bottom: 20px;
-    }
-
-    .close img {
-        width: 20px;
-        cursor: pointer;
-    }
-}
-
-/* Hide the 'menu' icon in desktop view */
-@media (min-width: 1025px) {
-    .menu {
-        display: none;
-    }
-}
-
-
-/* Corrected styling for side-menu */
-.side-menu {
-    display: none; /* Hide side-menu by default */
-}
-
-/* Show side-menu on smaller screens */
-@media (max-width: 1024px) {
-    .side-menu {
-        display: block; /* Make side-menu visible */
-        position: fixed;
-        width: 250px;
-        height: calc(100% - 100px); /* Adjusted height to add margin from the top */
-        background-color: #333;
-        color: #fff;
-        z-index: 100;
-        right: -250px; /* Initially hide the side-menu outside the viewport */
-        top: 100px; /* Margin from the top for nav bar */
-        overflow-y: auto;
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-        padding: 20px;
-        transition: right 0.3s ease; /* Add smooth sliding effect */
-        border-radius: 10px 0 0 10px; /* Rounded edge for better appearance */
+        transition: right 0.3s ease;
+        border-radius: 10px 0 0 10px;
     }
 
     .side-menu.active {
-        right: 0; /* Slide in the side-menu */
+        right: 0;
     }
 
     .side-menu .close {
@@ -286,8 +216,8 @@ a, button {
 
     .side-menu ul li {
         margin: 15px 0;
-        border-bottom: 1px solid #555; /* Separator line for better look */
-        padding-bottom: 10px; /* Spacing for each menu item */
+        border-bottom: 1px solid #555;
+        padding-bottom: 10px;
     }
 
     .side-menu ul li a {
@@ -301,6 +231,191 @@ a, button {
     }
 
     .side-menu ul li a:hover {
-        background-color: #444; /* Hover effect for better interaction */
+        background-color: #444;
     }
+}
+
+/* Mobile Menu Icon */
+@media (max-width: 960px) {
+    .menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Viewport scaling for mobile responsiveness */
+meta[name="viewport"] {
+    content: "width=device-width, initial-scale=1.0";
+}
+
+/* Media query for screens smaller than 960px */
+@media screen and (max-width: 960px) {
+    .footer-container {
+        max-width: 600px;
+    }
+    .logo {
+        margin-left: 30%;
+    }
+    nav ul, .srch, .get-started {
+        display: none;
+    }
+    .menu {
+        display: block;
+    }
+    nav {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #0005;
+    }
+}
+
+/* For smaller screens below 700px */
+@media screen and (max-width: 700px) {
+    footer .btn {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .svg-image img {
+        width: 90%;
+        margin: 20px;
+    }
+}
+
+/* Responsiveness for form and input fields */
+@media screen and (max-width: 960px) {
+    .feedbox form input, .feedbox form .fname {
+        width: 100%;
+    }
+}
+
+/* Side Menu styling */
+.side-menu {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .side-menu {
+        position: fixed;
+        width: 250px;
+        height: calc(100% - 100px);
+        background-color: #333;
+        color: #fff;
+        z-index: 100;
+        right: -250px;
+        top: 100px;
+        overflow-y: auto;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        transition: right 0.3s ease;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .side-menu.active {
+        right: 0;
+    }
+
+    .side-menu ul li {
+        margin: 15px 0;
+        border-bottom: 1px solid #555;
+        padding-bottom: 10px;
+    }
+
+    .side-menu ul li a {
+        color: #fff;
+        font-size: 18px;
+        padding: 8px;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    .side-menu ul li a:hover {
+        background-color: #444;
+    }
+}
+
+/* Menu visibility */
+@media (min-width: 1025px) {
+    .menu {
+        display: none;
+    }
+}
+
+
+/* For larger screens (desktop mode) */
+@media (min-width: 1024px) {
+    .logo {
+        margin-left: 50px; /* Add margin to the left of the logo */
+    }
+
+    .get-started {
+        margin-right: 50px; /* Add margin to the right of the token section */
+    }
+}
+
+
+/* Initially hide the side menu */
+.side-menu {
+    display: none; /* Hide side menu by default */
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    z-index: 100;
+    top: 0;
+    right: -250px; /* Hide off-screen initially */
+    overflow-y: auto;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    transition: right 0.3s ease; /* Smooth transition for sliding */
+    border-radius: 10px 0 0 10px;
+}
+
+/* When 'active' class is added, slide in the side menu */
+.side-menu.active {
+    display: block;
+    top: 100px;
+    right: 0; /* Slide in from the right */
+}
+
+/* Close button styles */
+.side-menu .close {
+    display: block;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.side-menu .close img {
+    width: 20px;
+    cursor: pointer;
+}
+
+/* Side menu items */
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu ul li {
+    margin: 15px 0;
+    border-bottom: 1px solid #555; /* Separator line */
+    padding-bottom: 10px;
+}
+
+.side-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.side-menu ul li a:hover {
+    background-color: #444; /* Hover effect */
 }

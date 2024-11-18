@@ -1,8 +1,4 @@
-// Menu Toggles
-document.getElementById("menuToggle").addEventListener("click", () => {
-    const menu = document.getElementById("menu");
-    menu.classList.toggle("hidden");
-});
+
 
 // Token System
 let tokens = 0;
