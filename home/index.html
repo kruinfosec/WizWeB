@@ -125,8 +125,13 @@
                             <option value="sports">Sports</option>
                         </select>
 
-                        <img src="../assets/plus-sign.png" alt="Upload Image" class="file-input-icon">
-                        <input type="file" id="community-image" name="community-image" accept="image/*">
+                        <label for="fileInput" class="file-input-label" aria-label="Choose file">
+                            <img src="../assets/plus-sign.png" alt="Upload Image" class="file-input-icon">
+                            Choose File
+                        </label>
+                        <input type="file" id="fileInput" multiple accept="image/*" style="display:none;"
+                            aria-label="File input">
+
 
                         <button type="submit" class="submit-btn">Create Community</button>
                     </form>
